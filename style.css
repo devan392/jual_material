@@ -1,0 +1,456 @@
+/* Reset */
+*, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            color: white;
+            padding-top: 10vh;
+            border-top: 3px solid rgb(6, 6, 6);
+            
+}
+
+main {
+    flex: 1; /* Membuat konten utama mengisi ruang sisa */
+}
+
+/* Hamburger Icon */
+#hamburger-menu {
+    display: none; /* Default hide hamburger */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    #hamburger-menu {
+        display: block; /* Tampilkan hamburger */
+        font-size: 24px; /* Atur ukuran ikon hamburger */
+        cursor: pointer; /* Tambahkan pointer pada hover */
+        position: absolute; /* Posisi fleksibel */
+        top: 20px; /* Sesuaikan posisi di atas */
+        right: 20px; /* Sesuaikan posisi di kanan */
+    }
+
+    ul.ul-navbar {
+        display: none; /* Hide navbar on small screens */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: #f1f1f1;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    ul.ul-navbar.active {
+        display: flex; /* Show navbar when active */
+        animation: slideDown 0.3s ease-out;
+    }
+
+    ul.ul-navbar li {
+        margin-bottom: 15px;
+    }
+
+    ul.ul-navbar li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Animation for sliding down menu */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Navbar */
+.container-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:   #2a2f81;
+    width: 100%;
+    height: 10vh;
+    padding: 0 2vw;
+}
+
+.logo-navbar {
+    width: 5vw;
+    height: 4.5vw;
+    border-radius: 50%;
+    margin-bottom: 2px;
+}
+
+.ul-navbar {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.li-navbar {
+    list-style: none;
+    margin: 0 30px;
+    font-size: 1rem;
+}
+
+.a-navbar {
+    text-decoration: none;
+    color: #faf4f4;
+    font-weight: bold;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.a-navbar:hover,
+.a-navbar.active {
+    color: #0566ed; /* Efek warna hover tetap pada item yang aktif */
+}
+
+.a-navbar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #2d07e9;
+    transition: width 0.3s ease;
+}
+
+.a-navbar:hover::after {
+    width: 100%;
+}
+
+.a-navbar:hover,
+.a-navbar.active {
+    width: 100%; /* Efek warna hover tetap pada item yang aktif */
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Pastikan section ini memiliki tinggi minimal layar penuh */
+    background: linear-gradient(to right, #6a11cb, #2575fc), url('your-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding-bottom: 20px; /* Memberikan ruang di bawah agar footer tidak tertutup */
+    overflow: hidden; /* Menyembunyikan konten yang keluar dari batas */
+    flex-direction: column;
+}
+
+.hero-section h2 {
+    color: white;
+            font-size: 3vw;
+            margin-bottom: 2vh; /* Beri jarak dengan tombol di bawah */
+            text-align: center;
+            margin-top: 5rem;
+}
+
+.hero-section h3 {
+    color: white;
+            font-size: 3vw;
+            margin-bottom: 12vh; /* Beri jarak dengan tombol di bawah */
+            text-align: center;
+}
+
+.hero-content {
+    max-width: 60%;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #eeeff0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid layout */
+    gap: 20px;
+    padding: 3vw;
+    max-width: 100%; /* Maksimal lebar steps container */
+    margin: 0 auto; /* Agar container tetap terpusat */
+}
+
+.step-box {
+    background-color: #f8f9ff;
+    border: 9px #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.step-box h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.step-box p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 2 kolom */
+    gap: 20px;
+    padding: 3vw;
+    max-width: 100%;
+    margin: 0 auto;
+    
+}
+
+/* Card */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 90%; /* Lebar tetap */
+    height: 40vh; /* Tinggi tetap */
+    display: flex;
+    flex-direction: column; /* Mengatur elemen secara vertikal */
+    align-items: center;
+    justify-content: space-between; /* Ruang antar elemen */
+    margin: auto; /* Agar card tetap di tengah */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.card-image {
+    width: 100%;
+    height: 60%; /* Tinggi tetap untuk gambar */
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Card Content */
+.card-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Nama barang tetap center */
+}
+
+.card-content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center; /* Nama barang tetap di tengah */
+}
+
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0;
+    text-align: left; /* Penjelasan barang di-align ke kiri */
+    width: 100%; /* Pastikan teks mengambil lebar penuh */
+}
+
+.card-content .price {
+    font-size: 1.5rem;
+    color: #2575fc;
+    font-weight: bold;
+    margin-top: 1rem;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Ini Untuk Halaman Transaksi */
+.form-transaksi {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #5C6BC0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;  /* Memusatkan gambar secara horizontal */
+}
+
+.form-transaksi img {
+    height: 40%;
+    width: 50%;
+}
+
+.form-transaksi h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: flex;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form input,
+form select,
+form textarea,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: block;
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Ini untuk Profile */
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    width: 320px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+    display: grid;
+    position: inherit;
+}
+
+
+.btn-left {
+    background-color: #007bff;;
+    color: #ffffff;
+}
+
+.btn-left:hover {
+    background-color: #7f09e7;
+}
+
+#transaction-history-link {
+    color: #151313;
+    text-decoration: none;
+}
+
+form textarea {
+    resize: none;
+}
+
+footer {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        font-size: 14px;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+
+/* Media Queries for responsiveness */
+@media (max-width: 1024px) {
+    .container-navbar {
+        height: 8vh;
+        padding: 0 1rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 4vw; /* Reduce font size on smaller screens */
+    }
+
+    .card {
+        width: 80%;
+        height: 40vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section h2 {
+        font-size: 5vw;
+    }
+
+    .steps-container, .card-container {
+        padding: 3vw;
+    }
+
+    .card {
+        width: 100%; /* Full width for small screens */
+        height: auto; /* Adjust height automatically */
+    }
+}
+
+@media (max-width: 480px) {
+    .container-navbar {
+        height: 7vh;
+        padding: 0 1rem;
+    }
+
+    .card {
+        width: 100%; /* Ensure cards are full width */
+        height: auto;
+    }
+
+    .hero-section h2 {
+        font-size: 6vw;
+    }
+
+
+}
+/* perbedaan align items, text align dan display flex */
