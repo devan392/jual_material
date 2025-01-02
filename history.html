@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Transaksi</title>
+    <style>
+        /* Reset dasar */
+        *, html {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            padding: 20px;
+            color: white;
+        }
+
+        /* Heading */
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        /* Tabel */
+        .table-wrapper {
+            overflow-x: auto; /* Agar tabel bisa di-scroll secara horizontal */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #6e7de2;
+        }
+
+        td {
+            font-size: 0.9rem;
+        }
+
+        /* Responsif: Tampilan tablet */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+
+        /* Responsif: Tampilan ponsel */
+        @media (max-width: 480px) {
+            .table-wrapper {
+                overflow-x: auto; /* Aktifkan scroll horizontal pada ponsel */
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                display: none; /* Sembunyikan header tabel untuk ponsel */
+            }
+
+            tr {
+                margin-bottom: 15px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+                white-space: nowrap; /* Mencegah teks terpotong */
+            }
+
+            td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Riwayat Transaksi</h1>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>Email</th>
+                    <th>Telepon</th>
+                    <th>Alamat</th>
+                    <th>Kode Pos</th>
+                    <th>Produk</th>
+                    <th>Jumlah</th>
+                    <th>Jenis Pembayaran</th>
+                    <th>Tipe Virtual Account</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-list">
+                <!-- Daftar transaksi akan ditambahkan di sini oleh JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Ambil data transaksi dari localStorage
+            var transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+
+            var transactionList = document.getElementById('transaction-list');
+            
+            if (transactions.length === 0) {
+                // Jika tidak ada transaksi, tampilkan pesan "Belum ada transaksi"
+                transactionList.innerHTML = "<tr><td colspan='9'>Belum ada transaksi.</td></tr>";
+            } else {
+                // Menampilkan setiap transaksi yang ada
+                transactions.forEach(transaction => {
+                    // Membuat elemen row <tr> untuk setiap transaksi
+                    let transactionRow = document.createElement('tr');
+
+                    // Menentukan VA Bank yang dipilih, atau 'N/A' jika tidak ada
+                    let vaBank = transaction.vaBank ? transaction.vaBank : 'N/A';
+
+                    // Menambahkan setiap data transaksi ke dalam kolom (td) pada row
+                    transactionRow.innerHTML = `
+                        <td data-label="Nama">${transaction.name}</td>
+                        <td data-label="Email">${transaction.email}</td>
+                        <td data-label="Telepon">${transaction.phone}</td>
+                        <td data-label="Alamat">${transaction.alamat}</td>
+                        <td data-label="Kode Pos">${transaction.kode}</td>
+                        <td data-label="Produk">${transaction.product}</td>
+                        <td data-label="Jumlah">${transaction.jumlah}</td>
+                        <td data-label="Jenis Pembayaran">${transaction.payment}</td>
+                        <td data-label="Tipe Virtual Account">${vaBank}</td>  <!-- Menampilkan tipe VA yang dipilih -->
+                    `;
+                    
+                    // Menambahkan row ke dalam tbody
+                    transactionList.appendChild(transactionRow);
+                });
+            }
+        };
+    </script>
+</body>
+</html>
