@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="aurora.webp" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url(images/unpam-v.jpeg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #f3f4f6; 
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('aurora.webp')
+        }
+
+        form {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px black;
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+            width: 100%;
+        }
+        
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+            align-self: flex-start;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        input[type="email"]:focus, input[type="password"]:focus {
+            border-color: #007bff;
+        }
+
+        .button {
+        display: block;
+        text-align: center;
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        width: 100%;
+        }
+
+        .button:hover {
+        background-color: #0056b3;
+        }
+
+    
+        h3 {
+            text-align: center;
+            font-size: 14px;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        h3 a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        h3 a:hover {
+            text-decoration: underline;
+        }
+
+        i {
+            display: block;
+            text-align: center;
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Login</h2>
+        
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required>
+        
+        <a href="dashboard.html" class="button">Login</a>
+        
+        <h3>Belum Punya Akun? <a href="register.html">Daftar Disini</a></h3>
+    </form>
+</body>
+</html>
