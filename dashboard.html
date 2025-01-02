@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Peminjaman Barang</title>
+<!-- Untuk CSS -->
+    <link rel="stylesheet" href="style.css">
+<!-- Untuk JavaScript -->
+ 
+
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container-navbar">
+            <!-- Logo -->
+            <img src="peminjaman barang.jpg" alt="Logo Peminjaman Barang" class="logo-navbar">
+    
+            <!-- Hamburger Menu (Icon) -->
+            <div id="hamburger-menu" class="hamburger-icon">
+                &#9776; <!-- Icon hamburger (tiga garis) -->
+            </div>
+    
+            <!-- Navigation Bar -->
+            <ul id="navbar-links" class="ul-navbar">
+                <li class="li-navbar"><a href="dashboard.html" class="a-navbar">Beranda</a></li>
+                <li class="li-navbar"><a href="transaksi.html" class="a-navbar">Transaksi</a></li>
+                <li class="li-navbar"><a href="profil.html" class="a-navbar">Profil</a></li>
+                <li class="li-navbar"><a href="index.html" class="a-navbar" onclick="return confirmLogout()">Log Out</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2>Langkah Langkah Menggunakan Website Peminjaman</h2>
+            <div class="steps-container">
+                <div class="step-box">
+                    <h3>Langkah 1</h3>
+                    <p>Untuk mengakses Transaksi, dan Profil, user harus login dengan cara klik menu "Log in"</p>
+                </div>
+                <div class="step-box">
+                    <h3>Langkah 2</h3>
+                    <p>Setelah User login, maka user dapat mengakses halaman Transaksi dan Profile</p>
+                </div>
+                <div class="step-box">
+                    <h3>Langkah 3</h3>
+                    <p>Pada halaman Transaksi user dapat melakukan pengisian form Transaksi, dengan cara klik "Simpan" </p>
+                </div>
+                <div class="step-box">
+                    <h3>Langkah 4</h3>
+                    <p>Setelah klik "Simpan" user dapat klik "Daftar Transaksi" untuk melihat history form pengisian</p>
+                </div>
+                <div class="step-box">
+                    <h3>Langkah 5</h3>
+                    <p>Setelah user selesai di halaman Transaksi, user dapat kembali ke beranda, lalu klik halaman profile</p>
+                </div>
+                <div class="step-box">
+                    <h3>Langkah 6</h3>
+                    <p>Di halaman Profile ini, user dapat membaca informasi terkait website ini, dan juga user dapat memberikan feedback terkait dengan website </p>
+                </div>
+            </div>
+        
+
+            <div class="heri-content">
+                <h2>Daftar barang </h2>
+            </div>
+
+        <div class="card-container">
+            <div class="card">
+                <img src="Semen.jpg" alt="Nama Barang" class="card-image">
+                <div class="card-content">
+                    <h3>Semen Tiga Roda</h3>
+                    <p>Semen berkualitas, memberikan hasil kuat dan tahan lama.</p>
+                    <div class="price">Rp30.000/kg </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="kayu.jpg" alt="Nama Barang" class="card-image">
+                <div class="card-content">
+                    <h3>Kayu Jati</h3>
+                    <p>Kayu jati kuat dan indah, ideal untuk furniture dan konstruksi.</p>
+                    <div class="price">Rp100.000/Kg </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="martil.jpg" alt="Nama Barang" class="card-image">
+                <div class="card-content">
+                    <h3>Martil</h3>
+                    <p>Martil kokoh dan ergonomis, ideal untuk perbaikan dan konstruksi.</p>
+                    <div class="price">Rp35.000/pcs</div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="Paku.jpg" alt="Nama Barang" class="card-image">
+                <div class="card-content">
+                    <h3>Paku</h3>
+                    <p>Paku kuat dan tahan lama, sempurna untuk berbagai material.</p>
+                    <div class="price">Rp10.000/kg</div>
+                </div>
+            </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Website Peminjaman Barang. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="navbar.js"></script>
+    
+</body>
+</html>
