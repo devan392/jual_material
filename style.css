@@ -172,7 +172,7 @@ main {
 .hero-section h3 {
     color: white;
             font-size: 3vw;
-            margin-bottom: 12vh; /* Beri jarak dengan tombol di bawah */
+            margin-bottom: 2vh; /* Beri jarak dengan tombol di bawah */
             text-align: center;
 }
 
@@ -265,7 +265,7 @@ main {
 /* Card Image */
 .card-image {
     width: 100%;
-    height: 60%; /* Tinggi tetap untuk gambar */
+    height: 40%; /* Tinggi tetap untuk gambar */
     object-fit: cover;
     border-bottom: 1px solid #ddd;
 }
