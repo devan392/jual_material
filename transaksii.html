@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Peminjaman Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container-navbar">
+            <!-- Logo -->
+            <img src="peminjaman barang.jpg" alt="Logo Peminjaman Barang" class="logo-navbar">
+    
+            <!-- Hamburger Menu (Icon) -->
+            <div id="hamburger-menu" class="hamburger-icon">
+                &#9776; <!-- Icon hamburger (tiga garis) -->
+            </div>
+    
+            <!-- Navigation Bar -->
+            <ul id="navbar-links" class="ul-navbar">
+                <li class="li-navbar"><a href="dashboard.html" class="a-navbar">Beranda</a></li>
+                <li class="li-navbar"><a href="transaksi.html" class="a-navbar">Transaksi</a></li>
+                <li class="li-navbar"><a href="profile.html" class="a-navbar">Profil</a></li>
+                <li class="li-navbar"><a href="index.html" class="a-navbar" onclick="return confirmLogout()">Log Out</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Ini isi content -->
+    <div class="form-transaksi">
+    <h4> Ayo Pesan Sekarang !</h4>
+    <form id="transaction-form" onsubmit="return confirmOrder()">
+        <label for="name">Nama Lengkap</label>
+        <input type="text" id="name" name="name" required>
+    
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+    
+        <label for="phone">Telepon</label>
+        <input type="tel" id="phone" name="phone" required>
+    
+        <label for="alamat">Alamat</label>
+        <textarea name="alamat" id="alamat" required></textarea>
+    
+        <label for="kode">Kode Pos</label>
+        <input type="text" name="kode" id="kode" required>
+    
+        <label for="product">Barang yang Dipesan</label>
+        <select name="product" id="product" required>
+            <option value="">-- Pilih Barang --</option>
+            <option value="Semen">Semen Tiga Roda</option>
+            <option value="Kayu_Jati">Kayu Jati</option>
+            <option value="Paku">Paku</option>
+            <option value="Martil">Martil</option>
+        </select>
+    
+        <label for="jumlah">Jumlah Barang</label>
+        <input type="text" name="jumlah" id="jumlah" required>
+
+        <label for="payment">Pilih Metode Pembayaran</label>
+        <select name="payment" id="payment" required onchange="showPaymentOptions()">
+            <option value="Qris">Qris</option>
+            <option value="VA">Virtual Account</option>
+        </select>
+
+        <!-- Virtual Account Options (hidden by default) -->
+        <div id="va-options" style="display:none;">
+            <label for="va-type">Pilih Bank</label>
+            <select name="va-type" id="va-type" onchange="showPaymentOptions()">
+                <option value="">-- Pilih Bank --</option>
+                <option value="BCA">BCA</option>
+                <option value="BRI">BRI</option>
+                <option value="Mandiri">Mandiri</option>
+            </select>
+        </div>
+
+        <!-- QR Code Display (hidden by default) -->
+        <div id="qr-code" style="display:none;">
+            <label for="qr">Scan QR Code</label>
+            <img src="qrcode.png" alt="QR Code" id="qr-img">
+        </div>
+
+        <!-- Display Nomor VA (hidden by default) -->
+        <div id="va-number-display" style="display:none;">
+            <label for="va-number">Salin Pembayar di bawah ini ya !</label>
+            <input type="text" id="va-number" name="va-number" readonly />
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="btn-left">Pesan Sekarang</button>
+
+            <button><a href="history.html" class="btn-right" id="transaction-history-link">Daftar Transaksi</a></button>
+
+        </div>
+    </form>
+    </div>
+
+    <!-- Ini Bagian Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Website Peminjaman Barang. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src=
+    "navbar.js">
+    </script>
+
+</body>
+</html>
+
